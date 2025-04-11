@@ -8,7 +8,7 @@ exports.verCarrinho = async (req, res) => {
 
 exports.adicionarItem = async (req, res) => {
   const { produtoId, quantidade } = req.body;
-  let carrinho = await Carrinho.findOne({ user: req.usuario.id });
+  let carrinho = await Carrinho.findOne({ user: req.user.id });
 
   if (!carrinho) {
     carrinho = await Carrinho.create({
@@ -30,7 +30,7 @@ exports.adicionarItem = async (req, res) => {
 
 exports.removerItem = async (req, res) => {
   const { produtoId } = req.params;
-  const carrinho = await Carrinho.findOne({ usuario: req.user.id });
+  const carrinho = await Carrinho.findOne({ user: req.user.id });
   carrinho.itens = carrinho.itens.filter(i => i.produto.toString() !== produtoId);
   await carrinho.save();
   res.json(carrinho);

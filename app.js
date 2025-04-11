@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'API online!!' });
+  res.status(200).json({ message: 'Express.js Api online!' });
 });
 
 module.exports = (req, res) => {
