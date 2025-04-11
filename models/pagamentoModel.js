@@ -6,7 +6,7 @@ const PagamentoSchema = new mongoose.Schema({
     ref: 'Pedido',
     required: true
   },
-  usuario: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
