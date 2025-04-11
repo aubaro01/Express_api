@@ -1,0 +1,27 @@
+{
+  "name": "express_api",
+  "version": "1.0.0",
+  "description": "Api for ecommerce ecosystem",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aubaro01/Express_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aubaro01/Express_api/issues"
+  },
+  "homepage": "https://github.com/aubaro01/Express_api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.15.0"
+  }
+}
