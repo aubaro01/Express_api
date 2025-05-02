@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Express.js Api online!' });
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 module.exports = (req, res) => {
