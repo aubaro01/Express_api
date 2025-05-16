@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uma api para uma loja e-comerce">
     <title>Documentação da API</title>
     <style>
         body {
@@ -13,25 +15,25 @@
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             background-color: #f8f9fa;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
             color: #2c3e50;
             margin-bottom: 10px;
         }
-        
+
         .api-description {
             font-size: 1.1em;
             margin-bottom: 20px;
         }
-        
+
         .endpoint {
             background-color: #f8f9fa;
             border-left: 4px solid #3498db;
@@ -39,7 +41,7 @@
             margin-bottom: 20px;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .method {
             display: inline-block;
             padding: 3px 10px;
@@ -48,116 +50,129 @@
             color: white;
             margin-right: 10px;
         }
-        
-        .get { background-color: #2ecc71; }
-        .post { background-color: #3498db; }
-        .put { background-color: #f39c12; }
-        .delete { background-color: #e74c3c; }
-        
+
+        .get {
+            background-color: #2ecc71;
+        }
+
+        .post {
+            background-color: #3498db;
+        }
+
+        .put {
+            background-color: #f39c12;
+        }
+
+        .delete {
+            background-color: #e74c3c;
+        }
+
         .path {
             font-family: monospace;
             font-size: 1.1em;
         }
-        
+
         .section {
             margin-bottom: 40px;
         }
-        
+
         .section-title {
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
             margin-bottom: 20px;
             color: #2c3e50;
         }
-        
+
         code {
             background-color: #f8f9fa;
             padding: 2px 5px;
             border-radius: 3px;
             font-family: monospace;
         }
-        
+
         pre {
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
         }
-        
+
         .response-table {
             width: 100%;
             border-collapse: collapse;
             margin: 15px 0;
         }
-        
-        .response-table th, .response-table td {
+
+        .response-table th,
+        .response-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
-        
+
         .response-table th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Documentação da API</h1>
         <div class="api-description">
-            Bem-vindo à documentação da nossa API. Esta página fornece todas as informações necessárias para integrar com nossos serviços.
+            Bem-vindo à documentação da nossa API. Esta página fornece todas as informações necessárias para integrar
+            com nossos serviços.
         </div>
         <div>
             <strong>URL Base:</strong> <code>https://apiaubaro.vercel.app/v1</code>
         </div>
     </header>
-    
+
     <!--<section class="section">
         <h2 class="section-title">Autenticação</h2>
         <p>Todas as requisições à API devem incluir um token de autenticação no cabeçalho:</p>
         <pre>Authorization: Bearer SEU_TOKEN_AQUI</pre>
     </section>-->
-    
+
     <section class="section">
         <h2 class="section-title">Endpoints</h2>
-        
+
         <div class="endpoint">
             <div>
                 <span class="method get">GET</span>
                 <span class="path">/user</span>
             </div>
             <p>Retorna uma lista de todos os users cadastrados.</p>
-            
+
             <h3>Exemplo de Requisição</h3>
             <pre>GET https://apiaubaro.vercel.app/v1/user</pre>
-            
+
             <h3>Exemplo de Resposta</h3>
             <pre>{
-  "data": [
-    {
-      "id": 1,
-      "nome": "João Silva",
-      "email": "joao@exemplo.com",
-      "data_criacao": "2023-01-15T10:30:00Z"
-    },
-    {
-      "id": 2,
-      "nome": "Maria Souza",
-      "email": "maria@exemplo.com",
-      "data_criacao": "2023-02-20T14:45:00Z"
-    }
-  ],
-  "total": 2
-}</pre>
+                "data": [
+                 {
+                    "id": 1,
+                    "nome": "João Silva",
+                    "data_criacao": "2023-01-15T10:30:00Z"
+                },
+                {
+                    "id": 2,
+                    "nome": "Maria Souza",
+                    "data_criacao": "2023-02-20T14:45:00Z",
+                }
+                ],
+                "total": 2
+            }
+        </pre>
         </div>
-        
+
         <div class="endpoint">
             <div>
                 <span class="method post">POST</span>
-                <span class="path">/user</span>
+                <span class="path">/user/newUser</span>
             </div>
             <p>Cria um novo user no sistema.</p>
-            
+
             <h3>Parâmetros</h3>
             <table class="response-table">
                 <tr>
@@ -170,42 +185,50 @@
                     <td>nome</td>
                     <td>string</td>
                     <td>sim</td>
-                    <td>Nome completo do user</td>
+                    <td>Nome do user (20 caracteres no máximo)</td>
                 </tr>
                 <tr>
                     <td>email</td>
                     <td>string</td>
                     <td>sim</td>
-                    <td>E-mail do user</td>
+                    <td>E-mail do user (30 caracteres no máximo)</td>
                 </tr>
                 <tr>
                     <td>senha</td>
                     <td>string</td>
                     <td>sim</td>
-                    <td>Senha de acesso (mínimo 8 caracteres)</td>
+                    <td>Senha de acesso (mínimo 8 e máximo 16 caracteres )</td>
+                </tr>
+                <tr>
+                    <td>isAdmin</td>
+                    <td>string</td>
+                    <td>não</td>
+                    <td>Se um user é tipo admin, default não é</td>
                 </tr>
             </table>
-            
-            <h3>Exemplo de Requisição</h3>
-            <pre>POST https://apiaubaro.vercel.app/v1/NewUser
-Content-Type: application/json
 
-{
-  "nome": "Carlos Oliveira",
-  "email": "carlos@exemplo.com",
-  "senha": "senhaSegura123"
-}</pre>
-            
+            <h3>Exemplo de Requisição</h3>
+            <pre>POST https://apiaubaro.vercel.app/v1/newuser
+                Content-Type: application/json
+                {
+                    "nome": "Carlos Oliveira",
+                    "email": "carlos@exemplo.com",
+                    "senha": "senhaSegura123",
+                    "isAdmin": 'no'
+                }
+            </pre>
+
             <h3>Exemplo de Resposta</h3>
             <pre>{
-  "id": 3,
-  "nome": "Carlos Oliveira",
-  "email": "carlos@exemplo.com",
-  "data_criacao": "2023-05-07T09:15:00Z"
-}</pre>
+                "id": 3,
+                "nome": "Carlos Oliveira",
+                "email": "carlos@exemplo.com",
+                "data_criacao": "2023-05-07T09:15:00Z"
+            }
+        </pre>
         </div>
     </section>
-    
+
     <section class="section">
         <h2 class="section-title">Códigos de Status</h2>
         <table class="response-table">
@@ -239,7 +262,7 @@ Content-Type: application/json
             </tr>
         </table>
     </section>
-    
+
     <section class="section">
         <h2 class="section-title">Limites e Cotas</h2>
         <ul>
@@ -248,10 +271,10 @@ Content-Type: application/json
             <li><strong>Timeout:</strong> 30 segundos por requisição</li>
         </ul>
     </section>
-    
+
     <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
-        <p>Para dúvidas ou suporte, entre em contato com <a href="mailto:suporte@exemplo.com">suporte@exemplo.com</a></p>
-        <p>© 2023 Empresa Exemplo. Todos os direitos reservados.</p>
+        <p>Para dúvidas ou suporte, entre em contato com <a href="https://github.com/aubaro01">aubaro</a></p>
     </footer>
 </body>
+
 </html>
