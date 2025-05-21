@@ -4,6 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const { send } = require('process');
 const app = express(); 
+const authRoute = require('./routes/userRoute');
+const documentRoute = require('./routes/documentRoute');
 
 
 app.use(cors({
@@ -20,6 +22,9 @@ app.get('/', (req, res) => {
 app.get('/v1', (rep, resp) =>{
   res.status(200).json({ message: 'Primeira versão da api online!' });
 });
+
+app.use('/v1/users', authRoute);
+app.use('/v1/documents', documentRoute);
 
 module.exports = (req, res) => {
   app(req, res);  

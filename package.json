@@ -20,8 +20,11 @@
   "homepage": "https://github.com/aubaro01/Express_api#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongodb": "^6.15.0"
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.15.0",
+    "multer": "^2.0.0"
   }
 }
