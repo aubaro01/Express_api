@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Uma api para uma loja e-comerce">
-    <title>Documentação da API</title>
+    <meta name="description" content="Uma api para uma ">
+    <title>Docs for API</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -118,10 +118,9 @@
 
 <body>
     <header>
-        <h1>Documentação da API</h1>
+        <h1>Docs for API</h1>
         <div class="api-description">
-            Bem-vindo à documentação da nossa API. Esta página fornece todas as informações necessárias para integrar
-            com nossos serviços.
+            Welcome to the docs of we API. This page give all informations for integrate with we services.
         </div>
         <div>
             <strong>URL Base:</strong> <code>https://apiaubaro.vercel.app/v1</code>
@@ -140,25 +139,54 @@
         <div class="endpoint">
             <div>
                 <span class="method get">GET</span>
-                <span class="path">/user</span>
+                <span class="path">/AdUsers</span>
             </div>
-            <p>Retorna uma lista de todos os users com autenticação para fazer upload de docs.</p>
+            <p>Return a list of all users with authetication to make a docs update. The users with the permission are <strong>Admin's</strong></p>
 
-            <h3>Exemplo de Requisição</h3>
-            <pre>GET https://apiaubaro.vercel.app/v1/user</pre>
+            <h3>Example of Request</h3>
+            <pre>GET https://apiaubaro.vercel.app/v1/users/AdUsers</pre>
 
-            <h3>Exemplo de Resposta</h3>
+            <h3>Example of Respost</h3>
             <pre>{
                 "data": [
                  {
                     "id": 1,
-                    "nome": "João Silva",
-                    "data_criacao": "2023-01-15T10:30:00Z"
+                    "name": "Miguel Gomes",
+                    "date_create": "2023-01-15T10:30:00Z"
                 },
                 {
                     "id": 2,
-                    "nome": "Maria Souza",
-                    "data_criacao": "2023-02-20T14:45:00Z",
+                    "name": "Claudio Filipe",
+                    "date_create": "2023-02-20T14:45:00Z",
+                }
+                ],
+                "total": 2
+            }
+        </pre>
+        </div>
+
+        <div class="endpoint">
+            <div>
+                <span class="method get">GET</span>
+                <span class="path">/AllUsers</span>
+            </div>
+            <p>Return a list of all users. This users only can see the docs.</p>
+
+            <h3>Example of Request</h3>
+            <pre>GET https://apiaubaro.vercel.app/v1/users/AllUsers</pre>
+
+            <h3>Example of Respost</h3>
+            <pre>{
+                "data": [
+                 {
+                    "id": 1,
+                    "name": "João Silva",
+                    "date_create": "2023-01-15T10:30:00Z"
+                },
+                {
+                    "id": 2,
+                    "name": "Maria Souza",
+                    "date_create": "2023-02-20T14:45:00Z",
                 }
                 ],
                 "total": 2
@@ -169,61 +197,61 @@
         <div class="endpoint">
             <div>
                 <span class="method post">POST</span>
-                <span class="path">/user/newUser</span>
+                <span class="path">/newUser</span>
             </div>
-            <p>Cria um novo user no sistema.</p>
+            <p>Create a new user for the sistem.</p>
 
-            <h3>Parâmetros</h3>
+            <h3>Parameters</h3>
             <table class="response-table">
                 <tr>
-                    <th>Nome</th>
-                    <th>Tipo</th>
+                    <th>Name</th>
+                    <th>Type</th>
                     <th>Obrigatório</th>
-                    <th>Descrição</th>
+                    <th>Descrision</th>
                 </tr>
                 <tr>
-                    <td>nome</td>
+                    <td>name</td>
                     <td>string</td>
-                    <td>sim</td>
-                    <td>Nome do user (20 caracteres no máximo)</td>
+                    <td>yes</td>
+                    <td>Name of user (20 caracteres in max)</td>
                 </tr>
                 <tr>
                     <td>email</td>
                     <td>string</td>
-                    <td>sim</td>
-                    <td>E-mail do user (30 caracteres no máximo)</td>
+                    <td>yes</td>
+                    <td>E-mail of user (30 caracteres in max)</td>
                 </tr>
                 <tr>
-                    <td>senha</td>
+                    <td>Password</td>
                     <td>string</td>
-                    <td>sim</td>
-                    <td>Senha de acesso (mínimo 8 e máximo 16 caracteres )</td>
+                    <td>yes</td>
+                    <td>Password for acess (min 8 and max 16 caracteres )</td>
                 </tr>
                 <tr>
                     <td>isAdmin</td>
                     <td>string</td>
-                    <td>não</td>
-                    <td>Se um user é tipo admin, default não é</td>
+                    <td>no</td>
+                    <td>if one user is type Admin, default value is "no".</td>
                 </tr>
             </table>
 
-            <h3>Exemplo de Requisição</h3>
-            <pre>POST https://apiaubaro.vercel.app/v1/newuser
+            <h3>Exempla of Request</h3>
+            <pre>POST https://apiaubaro.vercel.app/v1/users/newUser
                 Content-Type: application/json
                 {
-                    "nome": "Carlos Oliveira",
+                    "name": "Carlos Oliveira",
                     "email": "carlos@exemplo.com",
-                    "senha": "senhaSegura123",
+                    "password": "senhaSegura123",
                     "isAdmin": 'no'
                 }
             </pre>
 
-            <h3>Exemplo de Resposta</h3>
+            <h3>Exempla of Respost</h3>
             <pre>{
                 "id": 3,
-                "nome": "Carlos Oliveira",
+                "name": "Carlos Oliveira",
                 "email": "carlos@exemplo.com",
-                "data_criacao": "2023-05-07T09:15:00Z"
+                "date_create": "2023-05-07T09:15:00Z"
             }
         </pre>
         </div>
@@ -233,14 +261,14 @@
                 <span class="method get">GET</span>
                 <span class="path">/docs</span>
             </div>
-            <p>Retorna todos os documentos</p>
+            <p>Return a list with all docs</p>
         </div>
         <div class="endpoint">
             <div>
                 <span class="method post">POST</span>
                 <span class="path">/docs/newDocs</span>
             </div>
-            <p>Insere um novo documento</p>
+            <p>Insert a new doc</p>
         </div>
     </section>
 

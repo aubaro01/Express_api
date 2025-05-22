@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/v1', (rep, resp) =>{
-  res.status(200).json({ message: 'Primeira versão da api online!' });
+  res.status(200).json({ message: 'First verson of API online!' });
 });
 
 app.use('/v1/users', authRoute);
